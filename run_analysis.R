@@ -27,7 +27,7 @@ allActivity <- c(testActivity, trainActivity)
 allActivity <- factor(allActivity, labels = tolower(activities))
 
 # subselect and aggregate data
-data <- subset(allData, select = grep("mean|std|!freqMean", names(allData)))
+data <- subset(allData, select = grep("(mean|std)(\\.|$)", names(allData)))
 tidy <- aggregate(data, list(allSubject,allActivity), FUN=mean)
 names(tidy)[1:2] <- c("subject", "activity")
 
