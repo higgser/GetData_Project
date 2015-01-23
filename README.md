@@ -33,44 +33,39 @@ The following steps are performed.
 
 The output of the script is the new data file `uci_har_tidy.txt`. The output contains 180 values of 66 parameters. The first two rows are the subject id and the performed activity.
 
-The variable suffixes `X`, `Y` and `Z` are used to denote the signals in the x-, y- and z-directions. The variable prefix `t` denotes variables in the time space, where as the prefix `f` denotes variables in the frequency space after a FFT. Accelerations are measured in standard gravity units of `g` (about 9.81 meters/second^2). Angular velocities are measured in radians/second. However all variables have been normalized and bounded within [-1,1], so do not have units anymore.
+The variable suffixes `X`, `Y` and `Z` are used to denote the signals in the x-, y- and z-directions. The variable prefix `t` denotes variables in the time space, where as the prefix `f` denotes variables in the frequency space after a FFT. Accelerations are measured in standard gravity units of `g` (about 9.81 meters/second^2). Angular velocities are measured in radians/second. However all variables have been normalized and bounded within [-1,1], so do not have units anymore. The mean and standard devation `std` is given for each measured interval.
 
 * `subject`: subject id from 1 to 30
 * `activity`: name of the activity (walking, walkingup, walkingdown, sitting, standing, laying)
 
-* **BodyAcc**: acceleration of body (12 variables)
+* **BodyAcc**: acceleration of body (16 variables)
   * `tBodyAcc.[mean|std].[X|Y|Z]`
   * `fBodyAcc.[mean|std].[X|Y|Z]`
-  * scalar acceleration of body (4 variables)
+  * scalar acceleration of body
     * `tBodyAcc.[mean|std]`
     * `fBodyAcc.[mean|std]`
     
-* **BodyJerk**: jerk of body (12 variables)
+* **BodyJerk**: jerk of body (16 variables)
   * `tBodyJerk.[mean|std].[X|Y|Z]`
   * `fBodyJerk.[mean|std].[X|Y|Z]`
-  * scalar jerk of body (4 variables)
+  * scalar jerk of body
     * `tBodyJerk.[mean|std]`
     * `fBodyJerk.[mean|std]`
 
-* **GravityAcc**: gravitational acceleration (6 Variables)
+* **GravityAcc**: gravitational acceleration (8 Variables)
   * `tGravityAcc.[mean|std].[X|Y|Z]`
-  * scalar gravitational acceleration (2 Variables)
+  * scalar gravitational acceleration
     * `tGravityAcc.[mean|std]`
 
-* **BodyGyro**: rotation velocity of body (12 variables)
+* **BodyGyro**: rotation velocity of body (16 variables)
   * `tBodyGyro.[mean|std].[X|Y|Z]`
   * `fBodyGyro.[mean|std].[X|Y|Z]`
-  * BodyGyro: scalar rotation velocity of body (4 variables)
+  * scalar rotation velocity of body
     * `tBodyGyro.[mean|std]`
     * `fBodyGyro.[mean|std]`
 
-* **BodyGyroJerk**: angular acceleration (jerk?) of body (6 variables)
+* **BodyGyroJerk**: angular acceleration (jerk?) of body (10 variables)
   * `tBodyGyroJerk.[mean|std].[X|Y|Z]`
-  * BodyGyroJerk: scalar angular acceleration (jerk?) of body (4 variables)
+  * scalar angular acceleration of body
     * `tBodyGyroJerk.[mean|std]`
     * `fBodyGyroJerk.[mean|std]`
-
-The following statistical numbers are given for each measured time interval.
-
-* `mean()`: mean value
-* `std()`: standard deviation
