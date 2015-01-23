@@ -6,6 +6,8 @@
 # load and merge data sets
 setwd("UCI HAR Dataset")
 activities <- read.table("activity_labels.txt", stringsAsFactors = FALSE)$V2
+activities <- sub("_downstairs", "down", sub("_upstairs", "up", tolower(activities)))
+
 features <- read.table("features.txt", stringsAsFactors = FALSE)$V2
 features <- gsub("\\)","",gsub("\\(","",features))
 features <- sub("BodyBody", "Body",features)
@@ -24,7 +26,7 @@ setwd("..")
 allData <- rbind(testData, trainData)
 allSubject <- c(testSubject, trainSubject)
 allActivity <- c(testActivity, trainActivity)
-allActivity <- factor(allActivity, labels = tolower(activities))
+allActivity <- factor(allActivity, labels = activities)
 
 # subselect and aggregate data
 data <- subset(allData, select = grep("(mean|std)(\\.|$)", names(allData)))
